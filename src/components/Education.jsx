@@ -1,7 +1,9 @@
 function Education() {
   const education = [
-    { course: "B.Tech in Computer Science", institution: "ABC University", year: "2021 - 2025" },
-    { course: "High School", institution: "XYZ School", year: "2019 - 2021" },
+    { course: "B.Tech in Information Technology", institution: "M.A.M Colege pf Engineering and Technology", year: "2021 - 2025",Percentage:
+      "88%"
+     },
+    { course: "High School", institution: "New Sanggeeth Metric Hr.Sec School", year: "2019 - 2021" ,Percentage:"91%"},
   ];
 
   return (

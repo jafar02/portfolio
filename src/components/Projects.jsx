@@ -4,7 +4,7 @@ function Projects() {
       <h2 data-aos="fade-up" data-aos-delay="100">Projects</h2>
       <div className="project-list">
         <div className="project-card" data-aos="zoom-in" data-aos-delay="200">
-          <h3>Portfolio Website</h3>
+          <h3>Assessment-Driven AR Learning System</h3>
           <p>My personal portfolio built with React and CSS.</p>
           <a href="https://github.com/yourusername/portfolio" target="_blank">GitHub</a>
         </div>
