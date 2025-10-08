@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+import Education from "./components/Education";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -39,6 +40,10 @@ function App() {
         <section id="contact" data-aos="fade-up">
           <Contact />
         </section>
+
+         <section id="Education" data-aos="fade-up">
+          <Education />
+          </section>
       </main>
 
       <footer className="footer" data-aos="fade-up">
