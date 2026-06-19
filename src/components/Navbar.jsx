@@ -1,50 +1,61 @@
-import { useState, useEffect } from "react";
-
-function Navbar() {
-  const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("hero");
-
-  // Update active section on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["hero", "about", "projects", "achievements", "certificates", "education", "experience", "contact"];
-      const scrollPos = window.scrollY + 100; // Offset for navbar height
-
-      for (let id of sections) {
-        const section = document.getElementById(id);
-        if (section) {
-          const top = section.offsetTop;
-          const height = section.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActive(id);
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+export default function Navbar() {
   return (
-    <nav className="navbar">
-      <h1 className="logo">Jafar</h1>
-      <div className="hamburger" onClick={() => setOpen(!open)}>☰</div>
-      <ul className={`nav-links ${open ? "active" : ""}`}>
-        {["about", "projects", "achievements", "certificates", "education", "experience", "contact"].map((section) => (
-          <li key={section}>
-            <a
-              href={`#${section}`}
-              className={active === section ? "active-link" : ""}
-              onClick={() => setOpen(false)} // close mobile menu
-            >
-              {section.charAt(0).toUpperCase() + section.slice(1)}
+    <nav className="fixed top-0 left-0 w-full bg-slate-900/80 backdrop-blur-md z-50 shadow-lg">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        <h1 className="text-2xl font-bold text-cyan-400">
+          Mohamed Jafar
+        </h1>
+
+        <ul className="flex gap-6 text-sm md:text-base">
+          <li>
+            <a href="#about" className="hover:text-cyan-400">
+              About
             </a>
           </li>
-        ))}
-      </ul>
+          <li>
+            <a href="#skills" className="hover:text-cyan-400">
+              Skills
+            </a>
+          </li>
+          <li>
+            <a href="#projects" className="hover:text-cyan-400">
+              Projects
+            </a>
+          </li>
+          <li>
+  <a href="#experience" className="hover:text-cyan-400">
+    Experience
+  </a>
+</li>
+
+<li>
+  <a href="#certifications" className="hover:text-cyan-400">
+    Certifications
+  </a>
+</li>
+<li>
+  <a href="#education" className="hover:text-cyan-400">
+    Education
+  </a>
+</li>
+<li>
+  <a href="#timeline" className="hover:text-cyan-400">
+    Journey
+  </a>
+</li>
+
+<li>
+  <a href="#services" className="hover:text-cyan-400">
+    Services
+  </a>
+</li>
+          <li>
+            <a href="#contact" className="hover:text-cyan-400">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 }
-
-export default Navbar;
