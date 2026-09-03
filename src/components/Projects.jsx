@@ -1,35 +1,32 @@
 const projects = [
   {
-    title: "Assessment Driven AR Learning System",
+    title: "Assessment-Driven AR Learning System",
     description:
-      "An interactive AR-based learning platform designed to improve student engagement and assessment.",
+      "An interactive AR-based e-learning platform using custom 3D models built in Blender to help students visualize complex concepts, backed by Python scripts for content delivery.",
     tech: ["Python", "JavaScript", "Blender"],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/jafar02",
   },
   {
     title: "Internship Registration Portal",
     description:
-      "A responsive web application for managing internship registrations with a modern user interface.",
+      "A responsive web platform for students to register and submit internship applications end-to-end, with a React front end and Node.js APIs for form handling and validation.",
     tech: ["React", "Node.js", "HTML", "CSS"],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/jafar02",
   },
   {
-    title: "Sign Language Detection",
+    title: "Sign Language Detection System",
     description:
-      "A machine learning application that recognizes sign language gestures using computer vision.",
-    tech: ["Python", "Machine Learning"],
-    github: "#",
-    demo: "#",
+      "A real-time system that detects and classifies hand-sign gestures from webcam video using OpenCV and MediaPipe, with a trained classifier mapping gestures to letters/words.",
+    tech: ["Python", "OpenCV", "MediaPipe", "Machine Learning"],
+    github: "https://github.com/jafar02",
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 px-6 bg-slate-950">
+    <section id="projects" className="py-16 sm:py-20 px-5 sm:px-6 bg-slate-950">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-cyan-400 text-center mb-12">
+        <h2 className="text-3xl sm:text-4xl font-bold text-cyan-400 text-center mb-12">
           Featured Projects
         </h2>
 
@@ -58,25 +55,14 @@ export default function Projects() {
                 ))}
               </div>
 
-              <div className="flex gap-3">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex-1 text-center bg-cyan-500 text-white py-2 rounded-lg hover:bg-cyan-600 transition"
-                >
-                  GitHub
-                </a>
-
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex-1 text-center border border-cyan-500 text-cyan-300 py-2 rounded-lg hover:bg-cyan-500 hover:text-white transition"
-                >
-                  Live Demo
-                </a>
-              </div>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                className="block text-center bg-cyan-500 text-white py-2 rounded-lg hover:bg-cyan-600 transition"
+              >
+                View on GitHub
+              </a>
             </div>
           ))}
         </div>

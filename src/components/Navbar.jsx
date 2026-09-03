@@ -1,59 +1,80 @@
+import { useEffect, useState } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
+
+const links = [
+  { href: "#about", label: "About" },
+  { href: "#skills", label: "Skills" },
+  { href: "#projects", label: "Projects" },
+  { href: "#experience", label: "Experience" },
+  { href: "#education", label: "Education" },
+  { href: "#certifications", label: "Certifications" },
+  { href: "#timeline", label: "Journey" },
+  { href: "#services", label: "Services" },
+  { href: "#contact", label: "Contact" },
+];
+
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  // Lock body scroll while the mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
-    <nav className="fixed top-0 left-0 w-full bg-slate-900/80 backdrop-blur-md z-50 shadow-lg">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-        <h1 className="text-2xl font-bold text-cyan-400">
-          Mohamed Jafar
-        </h1>
+    <nav className="fixed top-0 left-0 w-full bg-slate-950/85 backdrop-blur-md z-50 border-b border-slate-800/80">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-5 sm:px-6 py-3.5">
+        <a
+          href="#top"
+          className="font-display text-lg sm:text-xl font-semibold tracking-tight text-white"
+        >
+          Mohamed<span className="text-cyan-400"> Jafar</span>
+        </a>
 
-        <ul className="flex gap-6 text-sm md:text-base">
-          <li>
-            <a href="#about" className="hover:text-cyan-400">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#skills" className="hover:text-cyan-400">
-              Skills
-            </a>
-          </li>
-          <li>
-            <a href="#projects" className="hover:text-cyan-400">
-              Projects
-            </a>
-          </li>
-          <li>
-  <a href="#experience" className="hover:text-cyan-400">
-    Experience
-  </a>
-</li>
+        {/* Desktop nav */}
+        <ul className="hidden lg:flex items-center gap-7 text-sm text-slate-300">
+          {links.map((link) => (
+            <li key={link.href}>
+              <a href={link.href} className="hover:text-cyan-400 transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
 
-<li>
-  <a href="#certifications" className="hover:text-cyan-400">
-    Certifications
-  </a>
-</li>
-<li>
-  <a href="#education" className="hover:text-cyan-400">
-    Education
-  </a>
-</li>
-<li>
-  <a href="#timeline" className="hover:text-cyan-400">
-    Journey
-  </a>
-</li>
+        {/* Mobile toggle */}
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          className="lg:hidden text-white text-2xl p-1.5 -mr-1.5"
+        >
+          {open ? <FiX /> : <FiMenu />}
+        </button>
+      </div>
 
-<li>
-  <a href="#services" className="hover:text-cyan-400">
-    Services
-  </a>
-</li>
-          <li>
-            <a href="#contact" className="hover:text-cyan-400">
-              Contact
-            </a>
-          </li>
+      {/* Mobile menu panel */}
+      <div
+        className={`lg:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out ${
+          open ? "max-h-[26rem]" : "max-h-0"
+        }`}
+      >
+        <ul className="flex flex-col px-5 pb-5 pt-1 gap-1 bg-slate-950/95 border-b border-slate-800/80">
+          {links.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="block py-2.5 text-slate-200 hover:text-cyan-400 transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>

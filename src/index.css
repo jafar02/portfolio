@@ -1,7 +1,13 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
@@ -9,7 +15,16 @@ body {
   padding: 0;
   background: #020617;
   color: white;
-  font-family: Inter, Arial, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
 }
 
 * {
@@ -19,4 +34,15 @@ body {
 ::selection {
   background: #06b6d4;
   color: white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
